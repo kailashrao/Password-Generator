@@ -1,0 +1,41 @@
+<html>
+    <head>
+        <link href="/static/styles/styles.css" rel="stylesheet">
+        <title>Password Generator</title>
+    </head>
+    <body>
+        <h1>Password Generator</h1>
+        <div class="container">
+            <div class="left">
+                <h3 style="text-align: center;">Password Specs</h3>
+                <ul>
+                    <li>Uppercase Letters:   {{upper}}</li>
+                    <li>Lowercase Letters:   {{lower}}</li>
+                    <li>Numbers:             {{number}}</li>
+                    <li>Special Characters:  {{special}}</li>
+                    <li>Extra Characters:    {{extra}}</li>
+                    <li style="font-weight: bold;">Total Characters:    {{total}}</li>
+                    <li style="font-weight: bold;">Number of Passwords: {{numpass}}</li>
+                </ul>
+            </div>
+            <div class="main">
+                <form action="/Passwords" method="POST">
+                    <label>How Many Uppercase Letters?</label> <br>
+                    <input type=number name="u1"> <br> <br>
+                    <label>How Many Lowercase Letters?</label> <br>
+                    <input type=number name="l1"> <br> <br>
+                    <label>How Many Numbers?</label> <br>
+                    <input type=number name="n1"> <br> <br>
+                    <label>How Many Special Characters?</label> <br>
+                    <input type=number name="s1"> <br> <br>
+                    <label>How Many Extra Characters?</label> <br>
+                    <input type=number name="e1"> <br> <br>
+                    <label>How Many Passwords?</label> <br>
+                    <input type=number name="ml"> <br> <br>
+                    <input type="submit" value="Generate">
+                </form>
+            </div>
+        </div>
+        <pre>{{result}}</pre>
+    </body>
+</html>

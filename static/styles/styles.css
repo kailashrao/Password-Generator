@@ -1,0 +1,48 @@
+h1 {
+    text-align: center;
+    font-size: 50pt;
+}
+input[type=number] {
+    width: 100%;
+    padding: 8px;
+}
+input[type=submit] {
+    background-color: #006BB6;
+    cursor: pointer;
+    color: white;
+    height: 5%;
+    width: 100%;
+    font-size: medium;
+}
+input[type=submit]:hover {
+    background-color: #1D428A;
+}
+div.container {
+    margin: auto;
+    width: 75%;
+    background-color: #FFC72C;
+}
+div.left {
+    float: left;
+    text-align: left;  
+    padding-left: 10%;
+    padding-top: 10%;
+    width: fit-content;
+}
+div.main {
+    text-align: center;
+    padding-bottom: 5px;
+    padding-top: 15px;
+    width: 20%;
+    margin: auto;
+}
+pre {
+    text-align: center;
+    background-color: #BE3A34;
+    color: white;
+    margin: auto;
+    width: fit-content;
+    padding-left: 2px;
+    padding-right: 10px;
+    font-size:large
+}

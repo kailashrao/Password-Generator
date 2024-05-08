@@ -1,0 +1,29 @@
+<html>
+    <head>
+        <link href="/static/styles/styles.css" rel="stylesheet">
+        <title>Password Generator</title>
+    </head>
+    <body>
+        <h1>Password Generator</h1>
+        <div class="container">
+            <div class="main">
+                <form action="/Passwords" method="POST">
+                    <label>How Many Uppercase Letters?</label> <br>
+                    <input type=number name="u1"> <br> <br>
+                    <label>How Many Lowercase Letters?</label> <br>
+                    <input type=number name="l1"> <br> <br>
+                    <label>How Many Numbers?</label> <br>
+                    <input type=number name="n1"> <br> <br>
+                    <label>How Many Special Characters?</label> <br>
+                    <input type=number name="s1"> <br> <br>
+                    <label>How Many Extra Characters?</label> <br>
+                    <input type=number name="e1"> <br> <br>
+                    <label>How Many Passwords?</label> <br>
+                    <input type=number name="ml"> <br> <br>
+                    <input type="submit" value="Generate">
+                </form>
+            </div>
+        </div>
+        <label style="font-weight: bold ; color: red; display: block; text-align: center; font-size: 30pt;">Please Enter a Number!</label>
+    </body>
+</html>
