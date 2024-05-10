@@ -1,51 +1,41 @@
-def shuffle(pass1, num1):
-    import random as rd
-    list1 = pass1
-    for j in range(0, len(list1), 1):
-        str1 = list1[j]
+import random as rd
+
+def shuffle(passwords, numchar):
+    for j in range(0, len(passwords), 1):
+        pass1 = passwords[j]
         pos = []
-        for i in range(0, num1, 1):
+        for i in range(0, numchar, 1):
             pos.append(i)
-        nummix = rd.sample(pos, num1)
+        nummix = rd.sample(pos, numchar)
         mix = []
-        for i in range(0, num1, 1):
-            mix.append(str1[nummix[i]])
+        for i in range(0, numchar, 1):
+            mix.append(pass1[nummix[i]])
         final = "".join(mix)
-        with open("passgen.txt", "a") as pass1:
-            pass1.write(str(j+1) + ". " + final + "\n")
+        with open("passgen.txt", "a") as f1:
+            f1.write(str(j+1) + ". " + final + "\n")
 
-def main(ml, u1, l1, n1, s1, e1):
-    
-    with open("passgen.txt", "w") as pass1:
-        pass1.write("")
-    ml = int(ml)
-    u1 = int(u1)
-    l1 = int(l1)
-    n1 = int(n1)
-    s1 = int(s1)
-    e1 = int(e1)
+def generatePasswords(inputs):
+    with open("passgen.txt", "w") as f1:
+        f1.write("")
 
-    import random as rd
-    list1 = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"]
-    list2 = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"]
-    list3 = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"]
-    list4 = ["&", "$", "%", "#", "@", "!", "?", ":", ";", ".", ",", "\"", "\'", "/", "\\", "<", ">", "(", ")", "[", "]", "{", "}", "|", "*", "=", "+", "-", "_", "^", "`", "~"]
-    list5 = list1 + list2 + list3 + list4
-    total = l1 + u1 + n1 + s1 + e1
+    upper = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"]
+    lower = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"]
+    number = [str(num) for num in range(10)]
+    special = ["&", "$", "%", "#", "@", "!", "?", ":", ";", ".", ",", "\"", "\'", "/", "\\", "<", ">", "(", ")", "[", "]", "{", "}", "|", "*", "=", "+", "-", "_", "^", "`", "~"]
+    extra = upper + lower + number + special
+    total = sum(inputs) - inputs[0]
     passlist = []
-    for j in range(0, ml, 1):
+    for j in range(0, inputs[0], 1):
         password = ""
-        for i in range(0, u1, 1):
-            password += rd.choice(list1)
-        for i in range(0, l1, 1):
-            password += rd.choice(list2)
-        for i in range(0, n1, 1):
-            password += rd.choice(list3)
-        for i in range(0, s1, 1):
-            password += rd.choice(list4)
-        for i in range(0, e1, 1):
-            password += rd.choice(list5)
+        for i in range(0, inputs[1], 1):
+            password += rd.choice(upper)
+        for i in range(0, inputs[2], 1):
+            password += rd.choice(lower)
+        for i in range(0, inputs[3], 1):
+            password += rd.choice(number)
+        for i in range(0, inputs[4], 1):
+            password += rd.choice(special)
+        for i in range(0, inputs[5], 1):
+            password += rd.choice(extra)
         passlist.append(password)
     shuffle(passlist, total)
-
-main(10, 10, 10, 10, 10, 10)
